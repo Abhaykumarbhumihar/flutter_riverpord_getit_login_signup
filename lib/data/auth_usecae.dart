@@ -8,4 +8,8 @@ class AuthUseCase {
   Future<void> login(UserEntity userEntity) async {
     return await _authRepository.login(userEntity);
   }
+
+  Future<void> getLocalData() async {
+    _authRepository.signUp(UserEntity());
+  }
 }

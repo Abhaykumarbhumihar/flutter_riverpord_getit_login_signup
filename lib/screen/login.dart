@@ -31,7 +31,12 @@ class Login extends ConsumerWidget {
                 onPressed: () {
                   ref.read(loginProviderProvider.notifier).login();
                 },
-                child: Text("LOGIN"))
+                child: Text("LOGIN")),
+            ElevatedButton(
+                onPressed: () {
+                  ref.read(loginProviderProvider.notifier).signUp();
+                },
+                child: Text("Get All login data"))
           ],
         ),
       ),

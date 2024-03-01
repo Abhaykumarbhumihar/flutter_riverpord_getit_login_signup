@@ -8,6 +8,8 @@ import 'services/http_overrides.dart';
 import 'services/service_locator.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   HttpOverrides.global = CustomHttpOverrides();
   setupLocator();
   runApp(ProviderScope(child: const MyApp()));
