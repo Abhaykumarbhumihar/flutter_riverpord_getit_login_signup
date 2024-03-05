@@ -9,6 +9,12 @@ class AuthUseCase {
     return await _authRepository.login(userEntity);
   }
 
+  Future<void> createAccount(UserEntity userEntity) async {
+    print("IN USECASE ");
+    print(userEntity.toMap());
+    _authRepository.signUp(userEntity);
+  }
+
   Future<void> getLocalData() async {
     _authRepository.signUp(UserEntity());
   }

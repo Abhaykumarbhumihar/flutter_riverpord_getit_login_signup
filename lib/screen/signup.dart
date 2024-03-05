@@ -11,7 +11,7 @@ class SignUpPage extends ConsumerWidget {
     final provider = ref.read(loginProviderProvider.notifier);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login Page"),
+        title: Text("Signup Page"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -21,17 +21,45 @@ class SignUpPage extends ConsumerWidget {
               // onChanged: (value) =>
               //     ref.read(loginProviderProvider.notifier).setEmail(),
               controller: provider.emailController,
+              decoration: const InputDecoration(
+                hintText: "Enter email here",
+                label: Text("Email"),
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
             TextField(
+              decoration: const InputDecoration(
+                hintText: "Enter password here",
+                label: Text("Password"),
+                border: OutlineInputBorder(),
+              ),
               //onChanged: (value) =>
               //    ref.read(loginProviderProvider.notifier).setPassword(),
               controller: provider.passwordController,
             ),
+            const SizedBox(
+              height: 20,
+            ),
             ElevatedButton(
-                onPressed: () {
-                  ref.read(loginProviderProvider.notifier).login();
-                },
-                child: Text("LOGIN"))
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black87,
+                minimumSize: const Size(88, 54),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
+              ),
+              onPressed: () {
+                ref.read(loginProviderProvider.notifier).signUp();
+              },
+              child: const Padding(
+                padding: EdgeInsets.only(left: 54.0, right: 54),
+                child: Text('Sign up'),
+              ),
+            ),
           ],
         ),
       ),

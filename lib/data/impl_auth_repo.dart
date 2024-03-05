@@ -16,7 +16,8 @@ class ImplAuthRepository implements AuthRepository {
 
   @override
   Future<void> signUp(UserEntity task) async {
-    var data = await _localAuthsource.getAllUser();
+    var data = await _localAuthsource.addTaskk(task);
     print(data);
+    var datad = _localAuthsource.getAllUser();
   }
 }

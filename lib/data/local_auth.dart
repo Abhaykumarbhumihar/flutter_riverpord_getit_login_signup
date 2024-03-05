@@ -69,4 +69,31 @@ class LocalAuthsource {
       },
     );
   }
+
+  Future<int> addTaskk(UserEntity userEntity) async {
+    print("CODE IS RUNNING HERE SDF ${userEntity.toJson()}");
+    final db = await database;
+
+    final List<Map<String, dynamic>> existingUser = await db.query(
+      LocalKeys.dbName,
+      where: '${LocalAuth.email} = ?',
+      whereArgs: [userEntity.email],
+      limit: 1,
+    );
+    print(existingUser);
+    print("CODE IS RUNNING HERE $existingUser");
+    if (existingUser.isNotEmpty) {
+      throw Exception('An account with this email already exists.');
+      return;
+    }
+    print("SDF SDF SDF SDF SDF ");
+
+    return db.transaction((txn) async {
+      return await txn.insert(
+        LocalKeys.dbName,
+        userEntity.toJson(),
+        conflictAlgorithm: ConflictAlgorithm.replace,
+      );
+    });
+  }
 }

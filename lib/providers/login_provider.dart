@@ -45,12 +45,15 @@ class LoginProvider extends _$LoginProvider {
   }
 
   signUp() {
-    // var email = emailController.text.toString();
-    // var password = passwordController.text.toString();
-    // state = state.copyWith(createdAt: "testing");
-    // state = state.copyWith(updatedAt: "testing");
-    // state = state.copyWith(name: "testing");
-    // print("USER INPUT IS $email $password");
-    _authUseCase.getLocalData();
+    var email = emailController.text.toString();
+    var password = passwordController.text.toString();
+    state = state.copyWith(createdAt: "testing");
+    state = state.copyWith(updatedAt: "testing");
+    state = state.copyWith(name: "testing");
+    setEmail();
+    setPassword();
+    print("USER INPUT IS $email $password");
+
+    _authUseCase.createAccount(state);
   }
 }
