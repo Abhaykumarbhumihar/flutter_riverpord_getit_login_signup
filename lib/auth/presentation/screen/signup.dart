@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_rivierpord_loginsignup/providers/login_provider.dart';
+import 'package:flutter_rivierpord_loginsignup/auth/presentation/providers/login_provider.dart';
+
 
 class SignUpPage extends ConsumerWidget {
   const SignUpPage({super.key});
@@ -9,6 +10,8 @@ class SignUpPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final loginProvider = ref.watch(loginProviderProvider);
     final provider = ref.read(loginProviderProvider.notifier);
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Signup Page"),
@@ -17,6 +20,8 @@ class SignUpPage extends ConsumerWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: <Widget>[
+            Text("Total data length = ${provider.list.length}"),
+
             TextField(
               // onChanged: (value) =>
               //     ref.read(loginProviderProvider.notifier).setEmail(),
@@ -66,3 +71,4 @@ class SignUpPage extends ConsumerWidget {
     );
   }
 }
+

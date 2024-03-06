@@ -1,8 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_rivierpord_loginsignup/providers/login_provider.dart';
-import 'package:flutter_rivierpord_loginsignup/screen/signup.dart';
+import 'package:flutter_rivierpord_loginsignup/auth/presentation/screen/signup.dart';
+
+import '../providers/login_provider.dart';
 
 class Login extends ConsumerWidget {
   const Login({super.key});
@@ -20,6 +21,7 @@ class Login extends ConsumerWidget {
             const EdgeInsets.only(left: 25.0, right: 30, top: 20, bottom: 20),
         child: Column(
           children: <Widget>[
+            Text("Total data length = ${provider.list.length}"),
             TextField(
               // onChanged: (value) =>
               //     ref.read(loginProviderProvider.notifier).setEmail(),

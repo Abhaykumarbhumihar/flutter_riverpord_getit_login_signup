@@ -21,6 +21,8 @@ dependencies:
   get_it:
   sqflite:
   path:
+  dartz:
+
 
 dev_dependencies:
   flutter_test:

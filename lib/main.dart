@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'screen/login.dart';
+import 'auth/presentation/screen/login.dart';
 import 'services/http_overrides.dart';
 import 'services/service_locator.dart';
 
